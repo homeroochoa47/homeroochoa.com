@@ -70,7 +70,7 @@ export default function ProjectCard(data: ProjectDataProps) {
                 <h3 className="font-semibold font-one text-3xl text-light">
                   {data.name}
                 </h3>
-                <Link href={data.url} className="text-sm md:text-md lg:text-lg font-light text-yellow font-two underline">
+                <Link href={data.url} rel="noopener noreferrer" target="_blank" className="text-sm md:text-md lg:text-lg font-light text-yellow font-two underline">
                   Live Site ↗
                 </Link>
               </div>
