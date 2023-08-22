@@ -1,17 +1,16 @@
 import PageTransition from '@/components/PageTransition';
 import { renderNavButtons } from '@/hooks/renderNavButtons';
-import { NavItemType } from '@/types';
 import { forwardRef } from 'react';
 import Head from 'next/head';
 
 // For the page transitions
-export type PlaylistPageProps = {
+type PlaylistPageProps = {
   pageKey: string,
 }
 
 export type PlaylistPageRef = React.ForwardedRef<HTMLDivElement>
 
-function Playlist({ pageKey, ...props }: PlaylistPageProps, ref: PlaylistPageRef) {
+function Playlist({ pageKey }: PlaylistPageProps, ref: PlaylistPageRef) {
   return (
     <PageTransition pageKey={pageKey} ref={ref}>
       <Head>

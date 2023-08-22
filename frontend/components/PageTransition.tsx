@@ -49,7 +49,7 @@ function PageTransition({ children, pageKey, ...rest }: PageTransitionProps, ref
 
   // If the user presses back in their browser
   useEffect(() => {
-    const reverseDirection = directions.reverseDirection;
+    const reverseDirection = directions.reverseDirection as "right" | "left" | "top" | "bottom";
 
     const handlePopstate = () => {
       setDirectionToMove(reverseDirection);

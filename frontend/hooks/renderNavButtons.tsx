@@ -1,5 +1,5 @@
 import NavButton from '@/components/NavButton';
-import { NavItemType, NavigationItemsObject } from '@/types';
+import { NavigationItemsObject } from '@/types';
 
 const navigationItems: NavigationItemsObject = {
   '/': [

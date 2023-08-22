@@ -1,22 +1,17 @@
 import PageTransition from '@/components/PageTransition';
 import { renderNavButtons } from '@/hooks/renderNavButtons';
-import { NavItemType } from '@/types';
 import { forwardRef } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
 
 // For the page transitions
-export type InfoPageProps = {
+type InfoPageProps = {
   pageKey: string,
 }
 
 export type InfoPageRef = React.ForwardedRef<HTMLDivElement>
 
-function Info({ pageKey, ...props }: InfoPageProps, ref: InfoPageRef) {
-  
-  // Buggy, need to fix.
-  // useSetDirectionToMove('left');
-
+function Info({ pageKey, }: InfoPageProps, ref: InfoPageRef) {
 
   return (
     <PageTransition pageKey={pageKey} ref={ref}>

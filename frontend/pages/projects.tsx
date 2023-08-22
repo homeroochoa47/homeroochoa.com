@@ -1,7 +1,6 @@
 import PageTransition from '@/components/PageTransition';
 import ProjectCard from '@/components/ProjectCard';
 import { renderNavButtons } from '@/hooks/renderNavButtons';
-import { NavItemType } from '@/types';
 import Head from 'next/head';
 import { forwardRef } from 'react';
 
@@ -100,7 +99,7 @@ function Projects({ pageKey }: PlaylistPageProps, ref: PlaylistPageRef) {
 
         <div className='flex flex-col pt-4 md:pt-5 pb-20 space-y-12 md:space-y-10 overflow-y-scroll w-full'>
           {projects.map((item, index) => (
-            <ProjectCard key={index} id={index} data={item} />
+            <ProjectCard key={index} {...item}/>
           ))}
         </div>
 

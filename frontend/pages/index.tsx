@@ -7,10 +7,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 // For the page transitions
-export type IndexPageProps = { pageKey: string; }
-export type IndexPageRef = React.ForwardedRef<HTMLDivElement>
+type IndexPageProps = { pageKey: string; }
+type IndexPageRef = React.ForwardedRef<HTMLDivElement>
 
-function Home({ pageKey, ...props }: IndexPageProps, ref: IndexPageRef) {
+function Home({ pageKey }: IndexPageProps, ref: IndexPageRef) {
   return (
     <PageTransition pageKey={pageKey} ref={ref}>
       <Head>

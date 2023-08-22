@@ -3,18 +3,16 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-interface Props {
-  data: string;
+interface ProjectDataProps {
+  coverImage: string;
   name: string;
   year: string;
   description: string;
-  coverImage: string;
-  fullImage: string;
   url: string;
-  id: number
+  fullImage: string;
 }
 
-export default function ProjectCard({ data, id }: Props) {
+export default function ProjectCard(data: ProjectDataProps) {
   const [isImageLoading, setIsImageLoading] = useState(true)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -102,7 +100,7 @@ export default function ProjectCard({ data, id }: Props) {
                 objectFit="cover"
                 alt={`A fullpage screenshot of the ${data.name} website home page.`}
                 loading="lazy"
-                quality={40}
+                quality={45}
               />
             </div>
 

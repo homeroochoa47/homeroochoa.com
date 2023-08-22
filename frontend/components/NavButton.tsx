@@ -3,7 +3,7 @@ import { directionToMoveContext } from '@/pages/_app';
 import { useContext } from 'react';
 
 interface Props {
-  position: string;
+  position: 'left' | 'right' | 'top' | 'bottom';
   pageName: string;
   link: string;
 }
