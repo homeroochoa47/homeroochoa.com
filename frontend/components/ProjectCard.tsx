@@ -67,14 +67,14 @@ export default function ProjectCard(data: ProjectDataProps) {
             {/* Heading and Caption */}
             <div className="flex flex-col justify-between items-start py-3">
               <div className="flex flex-col sm:flex-row w-fit sm:items-end space-x-[2px] sm:space-x-3">
-                <h3 className="font-semibold font-one text-3xl text-light">
+                <h3 className="font-semibold font-one text-xl sm:text-3xl text-light">
                   {data.name}
                 </h3>
                 <Link href={data.url} rel="noopener noreferrer" target="_blank" className="text-sm md:text-md lg:text-lg font-light text-yellow font-two underline">
                   Live Site ↗
                 </Link>
               </div>
-              <p className="text-xl font-two font-light text-light/[82%] ml-[1px]">
+              <p className="text-lg md:text-xl font-two font-light text-light/[82%] ml-[1px]">
                 Website and CMS for a Southern California French Bulldog Breeder
               </p>
             </div>
