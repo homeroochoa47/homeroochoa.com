@@ -4,6 +4,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Nunito_Sans, Hind_Madurai  } from 'next/font/google'
 import { useState, createContext } from 'react'
+import Script from 'next/script'
 
 // Setting up fonts for tailwind
 const nunito = Nunito_Sans({
@@ -38,6 +39,15 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <directionToMoveContext.Provider value={{directionToMove, setDirectionToMove}}>
       <main className={ `${hind.variable} ${nunito.variable} font-one site-container w-[100vw] overflow-hidden relative bg-dark`}>
+      <Script strategy='afterInteractive' src="https://www.googletagmanager.com/gtag/js?id=G-W9LT34TQSN"/>
+      <Script id="google-analytics" strategy='afterInteractive'>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-W9LT34TQSN');
+          `}
+      </Script>
         <AnimatePresence initial={false} mode="popLayout">
           <Component pageKey={pageKey} key={pageKey} {...pageProps} />
         </AnimatePresence>
