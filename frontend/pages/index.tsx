@@ -54,13 +54,13 @@ function Home({ pageKey }: IndexPageProps, ref: IndexPageRef) {
 
               <div id='button-group' className='flex flex-row mt-2 space-x-5'>
                 <a href="mailto:homeroochoa47@gmail.com">
-                  <button type="button" className="w-[175px] py-1.5 inline-flex justify-center items-center font-two text-sm lg:text-md text-dark rounded-sm font-medium bg-yellow hover:bg-yellow/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300">
+                  <button type="button" className="w-[100px] sm:w-[175px] py-1.5 inline-flex justify-center items-center font-two text-sm lg:text-md text-dark rounded-sm font-medium bg-yellow hover:bg-yellow/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300">
                     Email Me
                   </button>
                 </a>
 
                 <Link href="https://www.linkedin.com/in/homero-ochoa-047/">
-                  <button type="button" className="w-[175px] py-1.5 inline-flex justify-center items-center font-two text-sm lg:text-md text-dark rounded-sm font-medium bg-yellow hover:bg-yellow/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300">
+                  <button type="button" className="w-[100px] sm:w-[175px] py-1.5 inline-flex justify-center items-center font-two text-sm lg:text-md text-dark rounded-sm font-medium bg-yellow hover:bg-yellow/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300">
                     Connect
                   </button>
                 </Link>
