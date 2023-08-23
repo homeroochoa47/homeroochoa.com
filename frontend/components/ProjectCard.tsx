@@ -83,9 +83,11 @@ export default function ProjectCard(data: ProjectDataProps) {
             <div className="overflow-y-auto">
 
               {isImageLoading && 
-                <div className={`w-full animate-pulse ${isImageLoading ? 'flex' : 'hidden'}`}>
-                <span className="w-[100%] h-[500px] md:h-[700px] block bg-dark rounded-sm"></span>
-              </div>
+                <div className="w-[90%] mx-auto flex items-center">
+                  <div className="animate-spin mx-auto inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-gray-800 rounded-full" role="status" aria-label="loading">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
               }
               <Image
                 onLoadingComplete={() => (
