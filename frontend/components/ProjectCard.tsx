@@ -75,7 +75,7 @@ export default function ProjectCard(data: ProjectDataProps) {
                 </Link>
               </div>
               <p className="text-lg md:text-xl font-two font-light text-light/[82%] ml-[1px]">
-                Website and CMS for a Southern California French Bulldog Breeder
+                {data.description}
               </p>
             </div>
 
@@ -102,7 +102,7 @@ export default function ProjectCard(data: ProjectDataProps) {
                 objectFit="cover"
                 alt={`A fullpage screenshot of the ${data.name} website home page.`}
                 loading="lazy"
-                quality={45}
+                quality={55}
               />
             </div>
 
