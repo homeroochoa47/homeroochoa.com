@@ -116,8 +116,6 @@ export default function ProjectCard(data: ProjectDataProps) {
         </div>
       </motion.div>
 
-
-
     </div>
   )
 }
