@@ -32,7 +32,7 @@ function Home({ pageKey }: IndexPageProps, ref: IndexPageRef) {
       <div id='home' className='h-full flex relative items-center -mt-5 md:mt-0 justfy-center bg-dark'>
           <div className="flex flex-col md:flex-row md:items-center gap-x-4 w-[70%] lg:w-[50%] mx-auto">
             <Image
-              className="animate-in duration-700 fade-in delay-50 rounded-full lg:min-w-[200px] max-w-[150px] lg:max-w-[250px] border-2 border-yellow"
+              className="animate-in duration-700 fade-in delay-[150] rounded-full lg:min-w-[200px] max-w-[150px] lg:max-w-[250px] border-2 border-yellow"
               src="/homero.jpg" 
               layout="responsive"
               width={0}
@@ -42,17 +42,17 @@ function Home({ pageKey }: IndexPageProps, ref: IndexPageRef) {
               alt="homero sitting on a ledge in front of a Lakers baseketball court at the staples center"
             />
             <div className=" flex flex-col text-light">
-              <h3 className="animate-in duration-700 delay-50 fade-in font-semibold font-one text-3xl md:text-4xl lg:text-5xl">
+              <h3 className="animate-in duration-700 delay-100 fade-in font-semibold font-one text-3xl md:text-4xl lg:text-5xl">
                 Homero Ochoa
               </h3>
-              <p className="animate-in duration-700 delay-100 fade-in lg:text-lg font-light text-light/90 font-two ml-[1px]">
+              <p className="animate-in duration-700 delay-[150] fade-in lg:text-lg font-light text-light/90 font-two ml-[1px]">
                 Web Developer
               </p>
-              <p className="animate-in duration-700 delay-150 fade-in mt-1 lg:mt-3 text-sm md:text-lg lg:text-xl font-two font-light text-light/[82%] ml-[2px]">
+              <p className="animate-in duration-700 delay-[200] fade-in mt-1 lg:mt-3 text-sm md:text-lg lg:text-xl font-two font-light text-light/[82%] ml-[2px]">
                 Hi I’m Homero, an engineer and web developer that makes websites using Next.js and headless CMS backends.
               </p>
 
-              <div id='button-group' className='animate-in duration-700 delay-200 fade-in flex flex-row mt-2 space-x-5'>
+              <div id='button-group' className='animate-in duration-700 delay-[250] fade-in flex flex-row mt-2 space-x-5'>
                 <a href="mailto:homeroochoa47@gmail.com">
                   <button type="button" className="w-[100px] sm:w-[175px] py-1.5 inline-flex justify-center items-center font-two text-sm lg:text-md text-dark rounded-sm font-medium bg-yellow hover:bg-yellow/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300">
                     Email Me
