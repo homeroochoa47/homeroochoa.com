@@ -30,12 +30,12 @@ function Playlist({ pageKey }: PlaylistPageProps, ref: PlaylistPageRef) {
       {renderNavButtons(pageKey)}
       <div id='playlist' className='flex h-full relative flex-col items-center justify-center bg-dark md:space-y-5 w-full pr-12 md:w-[55%] pl-2 md:pl-0 md:mx-auto'>
         <div className='w-full'>
-          <h1 className='text-2xl lg:text-3xl font-semibold font-one text-light'>Playlist</h1>
-          <p className="lg:mt-1 md:text-lg lg:text-xl font-two font-light text-light/[82%] ml-[2px]">
+          <h1 className='animate-in duration-700 delay-50 fade-in text-2xl lg:text-3xl font-semibold font-one text-light'>Playlist</h1>
+          <p className="animate-in duration-700 delay-150 fade-in lg:mt-1 md:text-lg lg:text-xl font-two font-light text-light/[82%] ml-[2px]">
             Thanks for checking out my site. Here’s a playlist for your time.
           </p>
         </div>
-        <iframe className='h-[65%] md:h-[500px] drop-shadow-lg border-2 rounded-xl border-yellow' src="https://open.spotify.com/embed/playlist/65ZTSakunkRtuiXwDu1IrW?utm_source=generator&theme=0" width="100%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe className='animate-in duration-700 delay-200 fade-in h-[65%] md:h-[500px] drop-shadow-lg border-2 rounded-xl border-yellow' src="https://open.spotify.com/embed/playlist/65ZTSakunkRtuiXwDu1IrW?utm_source=generator&theme=0" width="100%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </PageTransition>
   )

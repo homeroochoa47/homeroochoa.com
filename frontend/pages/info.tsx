@@ -32,12 +32,12 @@ function Info({ pageKey, }: InfoPageProps, ref: InfoPageRef) {
 
       <div id='info' className='flex h-full mx-auto relative flex-col items-center bg-dark space-y-5 max-w-4xl lg:px-5 pl-12 pr-2 overflow-auto md:overflow-hidden'>
         <div className='w-full max-w-4xl pt-[8%]'>
-          <h1 className='text-2xl lg:text-3xl font-semibold font-one text-light'>Info</h1>
-          <p className="lg:mt-1 md:text-lg lg:text-xl font-two font-light text-light/[82%] ml-[2px]">
+          <h1 className='animate-in duration-700 delay-50 fade-in text-2xl lg:text-3xl font-semibold font-one text-light'>Info</h1>
+          <p className="animate-in duration-700 delay-100 fade-in lg:mt-1 md:text-lg lg:text-xl font-two font-light text-light/[82%] ml-[2px]">
               Some more about me and what I do
           </p>
         </div>
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-5 lg:gap-12 w-full max-w-4xl h-full'>
+        <div className='animate-in duration-700 delay-150 fade-in grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-5 lg:gap-12 w-full max-w-4xl h-full'>
           <Image
             className="w-full aspect-[4/5] sm:aspect-auto max-h-[250px] md:max-h-[290px] rounded-[4px] border-2 border-yellow object-cover hover:scale-105 transition-all duration-300 ease-out"
             src="/homero-2.jpg" 
@@ -70,7 +70,7 @@ function Info({ pageKey, }: InfoPageProps, ref: InfoPageRef) {
           />
         </div>
 
-        <div className='w-full flex flex-col space-y-10 md:space-y-24 md:overflow-y-scroll no-scrollbar pb-16 md:pb-[250px]'>
+        <div className='animate-in duration-700 delay-300 fade-in w-full flex flex-col space-y-10 md:space-y-24 md:overflow-y-scroll no-scrollbar pb-16 md:pb-[250px]'>
           
           <div className='flex flex-col md:flex-row '>
             <div className="sticky top-0 h-fit">

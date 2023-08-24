@@ -24,7 +24,7 @@ export default function NavButton({ position, pageName, link } : Props) {
     <div 
     onClick={() => setDirectionToMove(position)}
     className={`${positionStyles[position]} z-[50]`}>
-      <Link className={`flex flex-col w-fit mx-auto items-center`} href={link}>
+      <Link className={`animate-in duration-700 fade-in flex flex-col w-fit mx-auto items-center`} href={link}>
         <h3 className={`text-yellow font-one lg:text-xl font-light text-center leading-tight ${position === 'top' ? 'rotate-180' : ''}`}>{pageName}</h3>
         <svg className='w-[40px] lg:w-[55px]' viewBox="0 0 39 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M37.6959 1.56476C37.2638 1.56476 36.9135 1.21447 36.9135 0.782378C36.9135 0.350282 37.2638 0 37.6959 0C38.128 0 38.4783 0.350282 38.4783 0.782378C38.4783 1.21447 38.128 1.56476 37.6959 1.56476Z" fill="#E0AF27"/>

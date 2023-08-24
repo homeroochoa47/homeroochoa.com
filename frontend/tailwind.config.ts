@@ -25,6 +25,10 @@ module.exports = {
       dropShadow: {
         'hero-caption-1': '0px 4px 4px rgba(0, 0, 0, 0.25)',
       },
+      animation: {
+        'in': "in .6s both",
+        "in-reverse": "in-reverse .6s both",
+      },
     },
     fontFamily: {
       one: ["var(--font-nunito)"],
@@ -32,6 +36,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('preline/plugin'),
+    require("tailwindcss-animate"),
   ],
 }
