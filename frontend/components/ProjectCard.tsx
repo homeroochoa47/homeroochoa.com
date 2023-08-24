@@ -10,6 +10,7 @@ interface ProjectDataProps {
   description: string;
   url: string;
   fullImage: string;
+  delay: number;
 }
 
 export default function ProjectCard(data: ProjectDataProps) {
@@ -17,7 +18,7 @@ export default function ProjectCard(data: ProjectDataProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <div className="rounded-xl bg-transparent w-full">
+    <div className={`animate-in duration-700 fade-in delay-${data.delay} rounded-xl bg-transparent w-full`}>
       <div className="flex mx-auto flex-col md:flex-row items-center gap-x-4">
         <div className='relative w-full bg-[#1E1615] md:max-w-[300px] rounded-lg border-2 border-yellow'>
           {/* <img className="rounded-t-md w-full px-3 pt-3" src={data.coverImage} alt="Image Description"/> */}
