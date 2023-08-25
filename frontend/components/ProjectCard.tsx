@@ -25,7 +25,7 @@ export default function ProjectCard({data, delay}: ProjectDataProps) {
     <div className={`rounded-xl bg-transparent w-full`}>
       <div className={`animate-in duration-700 fade-in delay-${delay} flex mx-auto flex-col md:flex-row items-center gap-x-4`}>
         <div className='relative w-full bg-[#1E1615] md:max-w-[300px] rounded-lg border-2 border-yellow'>
-          <img className="rounded-t-md w-full px-3 pt-3" src={urlFor(data.coverImage)} alt={`A screenshot of the ${data.coverImage.alt} website in a browser.`}/>
+          <img className="animate-in duration-300 fade-in delay-150 rounded-t-md w-full px-3 pt-3" src={urlFor(data.coverImage)} alt={`A screenshot of the ${data.coverImage.alt} website in a browser.`}/>
         </div>
         <div className="flex flex-col text-light w-full md:w-auto mt-2 md:mt-0">
           <h3 className="text-2xl lg:text-3xl font-semibold font-one text-light">

@@ -47,7 +47,7 @@ function Projects({ pageKey, projectData }: ProjectPageProps, ref: ProjectPageRe
       {renderNavButtons(pageKey)}
       <div id='Project' className='flex h-full w-full lg:w-[55%] px-5 lg:px-0 mx-auto relative flex-col items-start bg-dark md:space-y-5 overflow-scroll md:overflow-hidden pt-10 md:pt-[150px]'>
         <div className='w-full max-w-4xl'>
-          <h1 className='animate-in duration-700 delay-[100] fade-in text-2xl lg:text-3xl font-semibold font-one text-light'>Projects</h1>
+          <h1 className='animate-in duration-700 delay-100 fade-in text-2xl lg:text-3xl font-semibold font-one text-light'>Projects</h1>
           <p className="animate-in duration-700 delay-150 fade-in lg:mt-1 md:text-lg lg:text-xl font-two font-light text-light/[82%] ml-[1px]">
             Browse some of my previous client work
           </p>
