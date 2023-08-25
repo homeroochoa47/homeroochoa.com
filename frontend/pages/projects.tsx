@@ -5,23 +5,28 @@ import { renderNavButtons } from '@/hooks/renderNavButtons';
 import Head from 'next/head';
 import { forwardRef } from 'react';
 
-interface PlaylistPageProps{
+interface ProjectPageProps {
   pageKey: string;
   projectData: {
-    projectList: Array<{
-      coverImage: {alt: string};
-      projectDescription: string;
-      projectYear: string;
-      projectName: string;
-      projectURL: string;
-      ProjectImages: Array<{
-      }>
-    }>;
+    projectList: ProjectListItem[];
   };
 }
-export type PlaylistPageRef = React.ForwardedRef<HTMLDivElement>
 
-function Projects({ pageKey, projectData }: PlaylistPageProps, ref: PlaylistPageRef) {
+interface ProjectListItem {
+  coverImage: { alt: string };
+  projectDescription: string;
+  projectYear: string;
+  projectName: string;
+  projectURL: string;
+  ProjectImages: Array<{
+    alt: string;
+  }>;
+}
+
+
+export type ProjectPageRef = React.ForwardedRef<HTMLDivElement>
+
+function Projects({ pageKey, projectData }: ProjectPageProps, ref: ProjectPageRef) {
   return (
     <PageTransition pageKey={pageKey} ref={ref}>
       <Head>
@@ -40,7 +45,7 @@ function Projects({ pageKey, projectData }: PlaylistPageProps, ref: PlaylistPage
       </Head>
 
       {renderNavButtons(pageKey)}
-      <div id='playlist' className='flex h-full w-full lg:w-[55%] px-5 lg:px-0 mx-auto relative flex-col items-start bg-dark md:space-y-5 overflow-scroll md:overflow-hidden pt-10 md:pt-[150px]'>
+      <div id='Project' className='flex h-full w-full lg:w-[55%] px-5 lg:px-0 mx-auto relative flex-col items-start bg-dark md:space-y-5 overflow-scroll md:overflow-hidden pt-10 md:pt-[150px]'>
         <div className='w-full max-w-4xl'>
           <h1 className='animate-in duration-700 delay-[100] fade-in text-2xl lg:text-3xl font-semibold font-one text-light'>Projects</h1>
           <p className="animate-in duration-700 delay-150 fade-in lg:mt-1 md:text-lg lg:text-xl font-two font-light text-light/[82%] ml-[1px]">
@@ -50,7 +55,7 @@ function Projects({ pageKey, projectData }: PlaylistPageProps, ref: PlaylistPage
 
         <div className='flex flex-col pt-4 md:pt-5 pb-20 space-y-12 md:space-y-10 overflow-y-scroll w-full'>
           {projectData.projectList.map((item, index) => (
-            <ProjectCard key={index} delay={50 + index*50} {...item}/>
+            <ProjectCard key={index} delay={50 + index*50} data={item}/>
           ))}
         </div>
       </div>

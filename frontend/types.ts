@@ -5,7 +5,6 @@ export interface NavItemType {
     link: string;
 }
 
-
 export type NavigationItemsObject = {
     [key: string]: NavItemType[];
   };

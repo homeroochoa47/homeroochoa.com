@@ -1,6 +1,5 @@
 import React from 'react'
 import { renderNavButtons } from '@/hooks/renderNavButtons';
-import Image from 'next/image';
 import PageTransition from '@/components/PageTransition'
 import { forwardRef } from 'react';
 import Head from 'next/head';
@@ -8,8 +7,6 @@ import Link from 'next/link';
 import { client } from '@/client';
 import { urlFor } from '@/lib/helpers';
 
-
-// For the page transitions
 interface IndexPageProps { 
   pageKey: string;
   homeData: {
@@ -21,6 +18,7 @@ interface IndexPageProps {
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>
 
 function Home({ pageKey, homeData }: IndexPageProps, ref: IndexPageRef) {
+  console.log(homeData)
   return (
     <PageTransition pageKey={pageKey} ref={ref}>
       <Head>
@@ -41,7 +39,7 @@ function Home({ pageKey, homeData }: IndexPageProps, ref: IndexPageRef) {
       {renderNavButtons(pageKey)}
       <div id='home' className='h-full flex relative items-center -mt-5 md:mt-0 justfy-center bg-dark'>
           <div className="flex flex-col md:flex-row md:items-center gap-x-4 w-[70%] lg:w-[50%] mx-auto">
-            <img src={urlFor(homeData.profilePicture).url()} className='animate-in duration-700 fade-in delay-150 rounded-full w-full max-w-[150px] lg:max-w-[250px] border-2 border-yellow' alt={homeData.profilePicture.alt} />
+            <img src={urlFor(homeData.profilePicture)} className='animate-in duration-700 fade-in delay-150 rounded-full w-full max-w-[150px] lg:max-w-[250px] border-2 border-yellow' alt={homeData.profilePicture.alt} />
             <div className=" flex flex-col text-light">
               <h3 className="animate-in duration-700 delay-100 fade-in font-semibold font-one text-3xl md:text-4xl lg:text-5xl">
                 Homero Ochoa
@@ -74,7 +72,6 @@ function Home({ pageKey, homeData }: IndexPageProps, ref: IndexPageRef) {
 
 export async function getStaticProps() {
   const homeData = await client.fetch(`*[_type == "homePage"][0]`);
-  console.log(homeData)
 
   return {
     props: {

@@ -46,7 +46,7 @@ function Info({ pageKey, infoData }: InfoPageProps, ref: InfoPageRef) {
         </div>
         <div className='animate-in duration-700 delay-150 fade-in grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-5 lg:gap-8 w-full max-w-4xl'>
           {infoData.infoImages.map((item, index) => (
-            <img key={index} src={urlFor(item).url()} alt={item.alt} className='w-full h-full max-h-[325px] rounded-[4px] border-2 border-yellow object-cover hover:scale-105 transition-all duration-300 ease-out' />
+            <img key={index} src={urlFor(item)} alt={item.alt} className='w-full h-full max-h-[325px] rounded-[4px] border-2 border-yellow object-cover hover:scale-105 transition-all duration-300 ease-out' />
           ))}
         </div>
 
