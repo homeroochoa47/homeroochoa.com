@@ -1,17 +1,24 @@
 import PageTransition from '@/components/PageTransition';
 import { renderNavButtons } from '@/hooks/renderNavButtons';
 import { forwardRef } from 'react';
-import Image from 'next/image';
 import Head from 'next/head';
+import { client } from '@/client';
+import { urlFor } from '@/lib/helpers';
 
-// For the page transitions
-type InfoPageProps = {
-  pageKey: string,
+interface InfoPageProps{
+  pageKey: string;
+  infoData: {
+    infoImages: Array<
+      {
+        alt: string
+      }
+    >;
+  };
 }
 
 export type InfoPageRef = React.ForwardedRef<HTMLDivElement>
 
-function Info({ pageKey, }: InfoPageProps, ref: InfoPageRef) {
+function Info({ pageKey, infoData }: InfoPageProps, ref: InfoPageRef) {
 
   return (
     <PageTransition pageKey={pageKey} ref={ref}>
@@ -37,37 +44,10 @@ function Info({ pageKey, }: InfoPageProps, ref: InfoPageRef) {
               Some more about me and what I do
           </p>
         </div>
-        <div className='animate-in duration-700 delay-150 fade-in grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-5 lg:gap-12 w-full max-w-4xl h-full'>
-          <Image
-            className="w-full aspect-[4/5] sm:aspect-auto max-h-[250px] md:max-h-[290px] rounded-[4px] border-2 border-yellow object-cover hover:scale-105 transition-all duration-300 ease-out"
-            src="/homero-2.jpg" 
-            layout="responsive"
-            width={0}
-            height={0}
-            quality={70}
-            objectFit="cover"
-            alt="homero sitting on a ledge in front of a Lakers baseketball court at the staples center"
-          />
-          <Image
-            className="w-full aspect-[4/5] sm:aspect-auto max-h-[250px] md:max-h-[290px] rounded-[4px] border-2 border-yellow object-cover hover:scale-105 transition-all duration-300 ease-out"
-            src="/sky.jpeg"
-            layout="responsive"
-            width={0}
-            height={0}
-            quality={70}
-            objectFit="cover"
-            alt="a house on a cliff at sunset with a plane leaving a smoke traile after doing a backward loop in the background"
-          />
-          <Image
-            className="hidden md:block w-full aspect-[4/5] sm:aspect-auto max-h-[250px] md:max-h-[290px] rounded-[4px] border-2 border-yellow object-cover hover:scale-105 transition-all duration-300 ease-out"
-            src="/arsenal.jpeg" 
-            layout="responsive"
-            width={0}
-            height={0}
-            quality={70}
-            objectFit="cover"
-            alt="fans sitting at an arsenal soccer game at sofi stadium in los angeles"
-          />
+        <div className='animate-in duration-700 delay-300 fade-in grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-5 lg:gap-8 w-full max-w-4xl'>
+          {infoData.infoImages.map((item, index) => (
+            <img key={index} src={urlFor(item)} alt={item.alt} className='w-full h-full max-h-[325px] rounded-[4px] border-2 border-yellow object-cover hover:scale-105 transition-all duration-300 ease-out' />
+          ))}
         </div>
 
         <div className='animate-in duration-700 delay-300 fade-in w-full flex flex-col space-y-10 md:space-y-24 md:overflow-y-scroll no-scrollbar pb-16 md:pb-[250px]'>
@@ -104,6 +84,16 @@ function Info({ pageKey, }: InfoPageProps, ref: InfoPageRef) {
       {renderNavButtons(pageKey)}
     </PageTransition>
   )
+}
+
+export async function getStaticProps() {
+  const infoData = await client.fetch(`*[_type == "infoPage"][0]`);
+
+  return {
+    props: {
+      infoData
+    },
+  };
 }
 
 export default forwardRef(Info)
