@@ -1,76 +1,27 @@
+import { client } from '@/client';
 import PageTransition from '@/components/PageTransition';
 import ProjectCard from '@/components/ProjectCard';
 import { renderNavButtons } from '@/hooks/renderNavButtons';
 import Head from 'next/head';
 import { forwardRef } from 'react';
 
-// For the page transitions
-export type PlaylistPageProps = {
-  pageKey: string,
+interface PlaylistPageProps{
+  pageKey: string;
+  projectData: {
+    projectList: Array<{
+      coverImage: {alt: string};
+      projectDescription: string;
+      projectYear: string;
+      projectName: string;
+      projectURL: string;
+      ProjectImages: Array<{
+      }>
+    }>;
+  };
 }
-
 export type PlaylistPageRef = React.ForwardedRef<HTMLDivElement>
 
-const projects = [
-  {
-    name: 'TeslaWrap.com',
-    year: '2023',
-    description: 'SEO Focused lead generation website with Hubspot API integration.',
-    coverImage: '/teslaWrap.png',
-    fullImage: '/teslaWrapFull.png',
-    url: 'https://teslawrap.com'
-  },
-  {
-    name: 'ScottieLine.com',
-    year: '2023',
-    description: 'Website and CMS for a Southern California French Bulldog Breeder.',
-    coverImage: '/scottieLine.png',
-    fullImage: '/scottieLineFull.png',
-    url: 'https://scottieline.com'
-  },
-  {
-    name: 'VehicleWrapService.com',
-    year: '2023',
-    description: 'SEO Focused lead generation website with Hubspot API integration.',
-    coverImage: '/vws.png',
-    fullImage: '/vwsFull.png',
-    url: 'https://vehiclewrapservice.com'
-  },
-  {
-    name: 'InnovativeStreetLights.com',
-    year: '2023',
-    description: 'Marketing website for a small business.',
-    coverImage: '/innovative.png',
-    fullImage: '/innovativeFull.png',
-    url: 'https://innovativestreetlights.com'
-  },
-  {
-    name: 'Insites by 47.Dev',
-    year: '2023',
-    description: 'My web development branch focused on creating websites for therapists.',
-    coverImage: '/insites.png',
-    fullImage: '/insitesFull.png',
-    url: 'https://insites.47webdev.com'
-  },
-  {
-    name: 'Twilight',
-    year: '2023',
-    description: 'Demo website for a group therapy practice.',
-    coverImage: '/twilight.png',
-    fullImage: '/twilightFull.png',
-    url: 'https://twilight.47webdev.com'
-  },
-  {
-    name: '47.Dev',
-    year: '2023',
-    description: 'My web devlopment business website.',
-    coverImage: '/47dev.png',
-    fullImage: '/47devFull.png',
-    url: 'https://47webdev.com'
-  },
-]
-
-function Projects({ pageKey }: PlaylistPageProps, ref: PlaylistPageRef) {
+function Projects({ pageKey, projectData }: PlaylistPageProps, ref: PlaylistPageRef) {
   return (
     <PageTransition pageKey={pageKey} ref={ref}>
       <Head>
@@ -98,14 +49,23 @@ function Projects({ pageKey }: PlaylistPageProps, ref: PlaylistPageRef) {
         </div>
 
         <div className='flex flex-col pt-4 md:pt-5 pb-20 space-y-12 md:space-y-10 overflow-y-scroll w-full'>
-          {projects.map((item, index) => (
+          {projectData.projectList.map((item, index) => (
             <ProjectCard key={index} delay={50 + index*50} {...item}/>
           ))}
         </div>
-
       </div>
     </PageTransition>
   )
+}
+
+export async function getStaticProps() {
+  const projectData = await client.fetch(`*[_type == "projectsPage"][0]`);
+
+  return {
+    props: {
+      projectData
+    },
+  };
 }
 
 export default forwardRef(Projects)

@@ -1,46 +1,38 @@
 import Link from "next/link"
-import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { urlFor } from "@/lib/helpers";
 
 interface ProjectDataProps {
-  coverImage: string;
-  name: string;
-  year: string;
-  description: string;
-  url: string;
-  fullImage: string;
+  coverImage: {alt: string};
+  projectDescription: string;
+  projectYear: string;
+  projectName: string;
+  projectURL: string;
+  ProjectImages: Array<{
+    alt: string;
+  }>
   delay: number;
 }
 
 export default function ProjectCard(data: ProjectDataProps) {
-  const [isImageLoading, setIsImageLoading] = useState(true)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <div className={`animate-in duration-700 fade-in delay-${data.delay} rounded-xl bg-transparent w-full`}>
-      <div className="flex mx-auto flex-col md:flex-row items-center gap-x-4">
+    <div className={`rounded-xl bg-transparent w-full`}>
+      <div className="animate-in duration-700 fade-in delay-${data.delay} flex mx-auto flex-col md:flex-row items-center gap-x-4">
         <div className='relative w-full bg-[#1E1615] md:max-w-[300px] rounded-lg border-2 border-yellow'>
-          {/* <img className="rounded-t-md w-full px-3 pt-3" src={data.coverImage} alt="Image Description"/> */}
-          <Image
-            className="rounded-t-md w-full px-3 pt-3"
-            src={data.coverImage}
-            layout="responsive"
-            width={0}
-            height={0}
-            objectFit="cover"
-            alt={`A screemshot of the ${data.name} website in a browser.`}
-          />
+          <img className="rounded-t-md w-full px-3 pt-3" src={urlFor(data.coverImage).url()} alt={`A screenshot of the ${data.coverImage.alt} website in a browser.`}/>
         </div>
         <div className="flex flex-col text-light w-full md:w-auto mt-2 md:mt-0">
           <h3 className="text-2xl lg:text-3xl font-semibold font-one text-light">
-            {data.name}
+            {data.projectName}
           </h3>
           <p className="text-sm md:text-md font-light text-light/80 font-two">
-            {data.year}
+            {data.projectYear}
           </p>
           <p className="lg:mt-1 md:text-lg lg:text-xl font-two font-light text-light/[82%] ml-[1px]">
-            {data.description}
+            {data.projectDescription}
           </p>
 
           <button type="button" onClick={() => setIsModalOpen(!isModalOpen)} className="w-[175px] py-1.5 inline-flex justify-center items-center font-two text-sm md:text-md text-dark rounded-sm font-medium bg-yellow hover:bg-yellow/80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 mt-1 md:mt-5">
@@ -69,42 +61,20 @@ export default function ProjectCard(data: ProjectDataProps) {
             <div className="flex flex-col justify-between items-start py-3">
               <div className="flex flex-col sm:flex-row w-fit sm:items-end space-x-[2px] sm:space-x-3">
                 <h3 className="font-semibold font-one text-xl sm:text-3xl text-light">
-                  {data.name}
+                  {data.projectName}
                 </h3>
-                <Link href={data.url} rel="noopener noreferrer" target="_blank" className="text-sm md:text-md lg:text-lg font-light text-yellow font-two underline">
+                <Link href={data.projectURL} rel="noopener noreferrer" target="_blank" className="text-sm md:text-md lg:text-lg font-light text-yellow font-two underline">
                   Live Site ↗
                 </Link>
               </div>
               <p className="text-lg md:text-xl font-two font-light text-light/[82%] ml-[1px]">
-                {data.description}
+                {data.projectDescription}
               </p>
             </div>
 
             {/* Scrollable Full Page Image */}
             <div className="overflow-y-auto">
-
-              {isImageLoading && 
-                <div className="w-[90%] mx-auto flex items-center">
-                  <div className="animate-spin mx-auto inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-gray-800 rounded-full" role="status" aria-label="loading">
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                </div>
-              }
-              <Image
-                onLoadingComplete={() => (
-                  console.log('loading complete'),
-                  setIsImageLoading(false)
-                )}
-                className={`mx-auto rounded-sm `}
-                src={data.fullImage}
-                layout="responsive"
-                width={0}
-                height={0}
-                objectFit="cover"
-                alt={`A fullpage screenshot of the ${data.name} website home page.`}
-                loading="lazy"
-                quality={55}
-              />
+              <img src={urlFor(data.ProjectImages[0]).url()} className="mx-auto rounded-sm" alt={`A fullpage screenshot of the ${data.projectName} website home page.`} />
             </div>
 
             {/* Close Button */}
@@ -116,7 +86,6 @@ export default function ProjectCard(data: ProjectDataProps) {
           </div>
         </div>
       </motion.div>
-
     </div>
   )
 }
