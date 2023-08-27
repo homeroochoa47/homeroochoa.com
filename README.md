@@ -4,40 +4,43 @@
 
 Welcome to my portfolio website! This project showcases my projects, experiences in web development, and a little about myself. It was built using Next.js and TypeScript.
 
-## Table of Contents
 
-- [Demo](#demo)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Customization](#customization)
-- [License](#license)
 
-## Demo
+## Live website
 
-You can check out the live demo of the website [here](https://www.example.com).
+You can check out the live version of the website [here](https://www.homeroochoa.com).
 
 ## Features
 
-- Display information about me, including skills and experiences.
-- Showcase a portfolio of my projects with descriptions and links.
-- Contact me through a contact form.
+The site is fairly simple, and includes the following
+- Projects page with a list of my live client projects
+  - The list and its images are populated via Sanity CMS
+- Info page with some more about me
+- An embedded spotify playlist
 
 ## Technologies Used
 
-- [Next.js](https://nextjs.org/) - React framework for server-side rendering and routing.
-- [TypeScript](https://www.typescriptlang.org/) - Adds static typing to JavaScript.
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework.
+- [Next.js](https://nextjs.org/) - Featuring the pages directory, rendering everything statically.
+- [TypeScript](https://www.typescriptlang.org/) - To allow for better type-safety
+- [Tailwind CSS](https://tailwindcss.com/) - Used for styling
+- [Framer Motion](https://www.framer.com/motion/) - For the page transition animations
+- [Sanity](https://www.sanity.io/) - Providing project data and images via their CDN.
 
-## Getting Started
-
-These instructions will help you set up the project locally on your machine.
 
 ### Installation
+You can install using NPM via
+```bash
+npm install
+```
+from both the frontend and sanity directories
 
 
 ### Usage
+You'll need two terminals; one in each of the two directories. From there you can run
+```bash
+npm run dev
+```
+to start development servers in each.
 
 ### Deployment
+Deployment can be done via Vercel by linking the repo to your project. From there selet 'frontend' as the main directory and you'll be good to go.
