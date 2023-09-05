@@ -18,7 +18,6 @@ interface IndexPageProps {
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>
 
 function Home({ pageKey, homeData }: IndexPageProps, ref: IndexPageRef) {
-  console.log(homeData)
   return (
     <PageTransition pageKey={pageKey} ref={ref}>
       <Head>
